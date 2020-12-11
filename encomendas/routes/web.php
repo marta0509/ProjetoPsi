@@ -50,4 +50,6 @@ Route::get('/encomendasprodutos','App\Http\Controllers\EncomendasProdutosControl
 Route::get('/encomendasprodutos/{id}/show','App\Http\Controllers\EncomendasProdutosController@show')->name('encomendasProdutos.show');
 
 
-Route::get('/form','App\Http\Controllers\FormController@mostrarForm')->name('processar.form');
+Route::post('/form','App\Http\Controllers\FormController@processarForm')->name('processar.form');
+
+Route::get('form','App\Http\Controllers\FormController@mostrarForm')->name('mostrar.form');

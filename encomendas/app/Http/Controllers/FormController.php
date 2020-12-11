@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cliente;
 
 class FormController extends Controller
 {
@@ -14,9 +15,8 @@ class FormController extends Controller
     public function processarForm(Request $request)
 	{
 		$pesquisa=$request->nome;
-		$cliente=Cliente::where('nome',$pesquisa)->first;
-		$clientes=Cliente::where('nome','like','%'.$pesquisa.'%')->with('cliente')->get();
-		return view('form-enviado',['processarForm'=>$pesquisa,'cliente'=>$cliente,'cliente'=>$clientes]);
-	}
 
+		$clientes=Cliente::where('nome','like','%'.$pesquisa.'%')->get();
+		return view('form-enviado',['nome'=>$pesquisa,'clientes'=>$clientes]);
+	}
 }

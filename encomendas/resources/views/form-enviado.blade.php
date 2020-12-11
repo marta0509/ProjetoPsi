@@ -1,15 +1,15 @@
 @extends('layout')
 @section('titulo-pagina')
-Formulário submetido
+Empresa-Pesquisa
 @endsection
 @section('header')
-Registo Completo com sucesso
+Pesquisa Completa com sucesso
 @endsection
 @section('conteudo')
-	
-	<b> ID: </b> {{$clientes->id_cliente}} <br>
-	<b> Nome: </b> {{$clientes->nome}} <br>
-	<b> Morada: </b> {{$clientes->morada}} <br>
-	<b> Telefone: </b> {{$clientes->telefone}} <br>
-
+	@foreach($clientes as $cliente)
+	<b> ID: </b> {{$cliente->id_cliente}} <br>
+	<b> Nome: </b> {{$cliente->nome}} <br>
+	<b> Morada: </b> {{$cliente->morada}} <br>
+	<b> Telefone: </b> {{$cliente->telefone}} <br>
+	@endforeach
 @endsection
