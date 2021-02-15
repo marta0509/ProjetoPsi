@@ -21,4 +21,76 @@ class ClientesController extends Controller
     	$clientes=Cliente::Where('id_cliente',$idCliente)->first();
     	return view ('clientes.show',['clientes'=>$clientes]);
     }
+
+    public function create()
+    {
+       return view ('clientes.create'); 
+    }
+
+    public function store(Request $request)
+    {
+        $novoCliente=$request->validate([
+            'nome'=>['required', 'min:3', 'max:100'],
+            'morada'=> ['required', 'min:3', 'max:100'],
+            'telefone'=>['required', 'min:9'],
+            'email'=>['nullable','min:5'],
+        ]);
+
+        $cliente=Cliente::create($novoCliente);
+
+        return redirect()->route('clientes.show',[
+            'id'=>$cliente->id_cliente
+        ]);
+    }
+
+    public function edit(Request $request)
+    {
+        $idCliente=$request->id;
+
+        $cliente=Cliente::where('id_cliente',$idCliente)->first();
+
+        return view('clientes.edit', [
+            'cliente'=>$cliente
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        $idCliente=$request->id;
+        $cliente=Cliente::findOrFail($idCliente);
+
+        $atualizarCliente=$request->validate([
+            'nome'=>['required', 'min:3', 'max:100'],
+            'morada'=> ['required', 'min:3', 'max:100'],
+            'telefone'=>['required', 'min:9'],
+            'email'=>['nullable','min:5'],
+        ]);
+
+        $cliente->update($atualizarCliente);
+
+        return redirect()->route('clientes.show',[
+            'id'=>$cliente->id_cliente
+        ]);
+    }
+
+    public function delete(Request $request)
+    {
+        $idCliente=$request->id;
+
+        $cliente=Cliente::where('id_cliente',$idCliente)->first();
+
+        return view('clientes.delete',['cliente'=>$cliente
+        ]);
+    }
+
+    public function destroy(Request $request)
+    {
+        $idCliente=$request->id;
+
+        $cliente=Cliente::findOrFail($idCliente);
+
+        $cliente->delete();
+
+        return redirect()->route('clientes.index')->with('mensagem','Cliente Eliminado!');
+    }
 }

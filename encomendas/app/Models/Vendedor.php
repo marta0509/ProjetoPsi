@@ -13,6 +13,12 @@ class Vendedor extends Model
 
     protected $table="vendedores";
 
+    protected $fillable=[
+    	'nome',
+        'especialidade',
+        'email'
+    ];
+
     public function encomenda()
     {
     	return $this->hasMany('App\Models\Encomenda','id_vendedor');

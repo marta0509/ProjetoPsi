@@ -6,15 +6,30 @@ Empresa-Encomendas
 Encomendas
 @endsection
 @section('conteudo')
-
-	<ul>
-	@foreach($encomendas as $encomenda)
-		<li>
-			<a href="{{route('encomendas.show',['id'=>$encomenda->id_encomenda])}}">
-				{{$encomenda->id_encomenda}}
-			</a>
-		</li>
-	@endforeach
-	</ul>
-	
+	<table>
+		@foreach($encomendas as $encomenda)
+		<tr>
+			<th>
+				<td>
+					<a href="{{route('encomendas.show',['id'=>$encomenda->id_encomenda])}}">
+						{{$encomenda->id_encomenda}}
+					</a>
+				</td>
+				@if(auth()->check())
+				<td><center>
+					<a href="{{route('encomendas.edit',['id'=>$encomenda->id_encomenda])}}">Editar
+					</a>
+				</td>
+				<td><center>
+					<a href="{{route('encomendas.delete',['id'=>$encomenda->id_encomenda])}}">Eliminar</a>
+				</td>
+				@endif
+			</th>
+		</tr>
+		@endforeach
+	</table>
+@if(auth()->check())	
+<br>
+<a href="{{route('encomendas.create')}}">Adicionar</a>
+@endif
 @endsection

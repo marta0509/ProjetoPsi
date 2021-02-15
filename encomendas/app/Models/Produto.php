@@ -13,6 +13,13 @@ class Produto extends Model
 
     protected $table="produtos";
 
+    protected $fillable=[
+    	'designacao',
+    	'stock',
+    	'preco',
+    	'observacoes'
+    ];
+
     public function encomendaProduto()
     {
     	return $this->hasMany('App\Models\EncomendaProduto','id_produto');

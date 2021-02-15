@@ -13,6 +13,9 @@ Informações do vendedor: <b>{{$vendedores->nome}}</b><br>
 	<b> Especialidade: </b> {{$vendedores->especialidade}} <br>
 	<b> Email: </b> {{$vendedores->email}} <br>
 
+<br>
+<a href="{{route('vendedores.index')}}">Voltar</a>
+
 @endsection
 
 

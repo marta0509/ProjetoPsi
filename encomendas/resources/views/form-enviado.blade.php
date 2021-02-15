@@ -12,4 +12,6 @@ Pesquisa Completa com sucesso
 	<b> Morada: </b> {{$cliente->morada}} <br>
 	<b> Telefone: </b> {{$cliente->telefone}} <br>
 	@endforeach
+	<br>
+	<a href="{{route('mostrar.form')}}">Voltar</a>
 @endsection

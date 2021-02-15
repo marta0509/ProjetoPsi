@@ -13,6 +13,9 @@ Informações sobre: <b>{{$produtos->designacao}}</b><br>
 	<b> Preço: </b> {{$produtos->preco}} €<br>
 	<b> Observações: </b> {{$produtos->observacoes}} <br>
 
+
+<br>
+<a href="{{route('produtos.index')}}">voltar</a>
 @endsection
 
 
