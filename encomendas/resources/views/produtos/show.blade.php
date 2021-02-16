@@ -12,8 +12,10 @@ Informações sobre: <b>{{$produtos->designacao}}</b><br>
 	<b> Stock: </b> {{$produtos->stock}} Uni<br>
 	<b> Preço: </b> {{$produtos->preco}} €<br>
 	<b> Observações: </b> {{$produtos->observacoes}} <br>
-
-
+	<b> Imagem: </b> 
+	@if(isset($produtos->imagem))
+		<img src="{{asset('imagens/produtos/'.$produtos->imagem)}}" width="250px" height="150px"><br>
+	@endif
 <br>
 <a href="{{route('produtos.index')}}">voltar</a>
 @endsection

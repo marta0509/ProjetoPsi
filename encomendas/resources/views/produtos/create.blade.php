@@ -6,7 +6,7 @@ Empresa-Produtos
 Produtos
 @endsection
 @section('conteudo')
-<form action="{{route('produtos.store')}}" method="post">
+<form action="{{route('produtos.store')}}" enctype="multipart/form-data" method="post">
 	@csrf
 	<h3>Criar novo Produto</h3>
 	Designação:<input type="text" name="designacao"><br>
@@ -26,6 +26,7 @@ Produtos
 
 	Observações:<input type="text" name="observacoes"><br>
 
+	Imagem: <input type="file" name="imagem"><br>
 	<br>
 	<input type="submit" name="criar">
 </form>

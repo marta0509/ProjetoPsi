@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Produto;
+
 
 class ProdutosController extends Controller
 {
@@ -34,7 +37,18 @@ class ProdutosController extends Controller
             'stock'=>['required'],
             'preco'=>['required'],
             'observacoes'=>['nullable', 'min:5'],
+            'imagem'=>['image','nullable','max:2000'],
         ]);
+
+        if($request->hasFile('imagem'))
+        {
+            $nomeImagem = $request->file('imagem')->getClientOriginalName();
+
+            $nomeImagem = time().'_'.$nomeImagem;
+            $guardarImagem = $request->file('imagem')->storeAs('imagens/produtos',$nomeImagem);
+
+            $novoProduto['imagem']=$nomeImagem;
+        }
 
         $produto=Produto::create($novoProduto);
         return redirect()->route('produtos.show',[
@@ -48,6 +62,23 @@ class ProdutosController extends Controller
 
         $produto=Produto::where('id_produto',$idProduto)->first();
 
+        if($request->hasFile('imagem'))
+        {
+            $nomeImagem = $request->file('imagem')->getClientOriginalName();
+
+            $nomeImagem = time().'_'.$nomeImagem;
+            $guardarImagem = $request->file('imagem')->storeAs('imagens/produtos',$nomeImagem);
+
+            if(!is_null($request->imagem_anterior))
+            {
+                Storage::Delete('imagens/produtos/'.$request->imagem_anterior);
+            }
+
+            $atualizarProduto['imagem']=$nomeImagem;
+        }
+
+        
+
         return view('produtos.edit', [
             'produto'=>$produto
         ]);
@@ -57,13 +88,25 @@ class ProdutosController extends Controller
     {
         $idProduto=$request->id;
         $produto=Produto::findOrFail($idProduto);
+        $imagemAntiga=$produto->imagem;
 
         $atualizarProduto=$request->validate([
             'designacao'=>['required','min:5'],
             'stock'=>['required'],
             'preco'=>['required'],
             'observacoes'=>['nullable', 'min:5'],
+            'imagem'=>['image','nullable','max:2000'],
         ]);
+
+        if($request->hasFile('imagem'))
+        {
+            $nomeImagem = $request->file('imagem')->getClientOriginalName();
+
+            $nomeImagem = time().'_'.$nomeImagem;
+            $guardarImagem = $request->file('imagem')->storeAs('imagens/produtos',$nomeImagem);
+
+            $atualizarProduto['imagem']=$nomeImagem;
+        }
 
         $produto->update($atualizarProduto);
         

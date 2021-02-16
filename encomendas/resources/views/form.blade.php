@@ -15,7 +15,7 @@ Pesquisa
 		<br><br>
 		<button type="submit">Enviar</button>
 	</form>
-	
+	<!--
 	@if(Gate::allows('admin'))
 		<h5>Insira o produto que quer pesquisar.</h5><br>
 		<form method="post" action="{{route('processar.form')}}">
@@ -25,5 +25,5 @@ Pesquisa
 			<br><br>
 			<button type="submit">Enviar</button>
 		</form>
-	@endif
+	@endif-->
 @endsection

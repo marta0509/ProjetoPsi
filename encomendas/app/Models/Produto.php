@@ -17,7 +17,8 @@ class Produto extends Model
     	'designacao',
     	'stock',
     	'preco',
-    	'observacoes'
+    	'observacoes',
+        'imagem'
     ];
 
     public function encomendaProduto()

@@ -13,11 +13,6 @@ Pesquisa Completa com sucesso
 	<b> Telefone: </b> {{$cliente->telefone}} <br>
 	@endforeach
 
-	@foreach($produtos as $produto)
-	<b> Nome: </b> {{$produto->designacao}} <br>
-	<b> Stock: </b> {{$produto->stock}} <br>
-	<b> Preço: </b> {{$produto->preco}} <br>
-	@endforeach
 	<br>
 	<a href="{{route('mostrar.form')}}">Voltar</a>
 @endsection

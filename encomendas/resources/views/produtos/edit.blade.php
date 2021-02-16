@@ -6,7 +6,7 @@ Empresa-Produtos
 Produtos
 @endsection
 @section('conteudo')
-<form action="{{route('produtos.update',['id'=>$produto->id_produto])}}" method="post">
+<form action="{{route('produtos.update',['id'=>$produto->id_produto])}}" enctype="multipart/form-data" method="post">
 	@csrf
 	@method('patch')
 
@@ -27,6 +27,8 @@ Produtos
 	@endif
 
 	Observações:<input type="text" name="observacoes" value="{{$produto->observacoes}}"><br>
+
+	Imagem: <input type="file" name="imagem" value="{{$produto->imagem}}"><br>
 	<br>
 	<input type="submit" name="criar">
 </form>
