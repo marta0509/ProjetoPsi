@@ -16,19 +16,25 @@ Produtos
 					</a>
 		</td>
 			@if(auth()->check())
-				<td><center>
-					<a href="{{route('produtos.edit',['id'=>$produto->id_produto])}}">Editar</a>
-				</td>
-				<td><center>
-					<a href="{{route('produtos.delete',['id'=>$produto->id_produto])}}">Eliminar</a>
-				</td>
+				@if(Gate::allows('admin') || Gate::allows('normal'))
+					<td><center>
+						<a href="{{route('produtos.edit',['id'=>$produto->id_produto])}}">Editar</a>
+					</td>
+				@endif
+				@if(Gate::allows('admin'))
+					<td><center>
+						<a href="{{route('produtos.delete',['id'=>$produto->id_produto])}}">Eliminar</a>
+					</td>
+				@endif
 			@endif
 			</th>
 		</tr>
 	@endforeach
 	</table>
 @if(auth()->check())
-<br>
-<a href="{{route('produtos.create')}}">Adicionar</a>
+	@if(Gate::allows('admin'))
+	<br>
+	<a href="{{route('produtos.create')}}">Adicionar</a>
+	@endif
 @endif
 @endsection

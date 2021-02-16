@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cliente;
+use App\Models\Produto;
 
 class FormController extends Controller
 {
@@ -18,5 +19,8 @@ class FormController extends Controller
 
 		$clientes=Cliente::where('nome','like','%'.$pesquisa.'%')->get();
 		return view('form-enviado',['nome'=>$pesquisa,'clientes'=>$clientes]);
+
+		$produtos=Produto::where('designacao','like','%'.$pesquisa.'%')->get();
+		return view('form-enviado',['designacao'=>$pesquisa,'produtos'=>$produtos]);
 	}
 }

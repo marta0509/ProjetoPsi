@@ -51,7 +51,7 @@ class ClientesController extends Controller
 
         $cliente=Cliente::where('id_cliente',$idCliente)->first();
 
-        if (Gate::allows('atualizar-cliente',$cliente)||Gate::allows('normal')||Gate::allows('admin')) 
+        if (Gate::allows('atualizar-cliente',$cliente)||Gate::allows('normal')) 
         {          
             return view('clientes.edit', [
                 'cliente'=>$cliente
@@ -87,7 +87,7 @@ class ClientesController extends Controller
         $idCliente=$request->id;
 
         $cliente=Cliente::where('id_cliente',$idCliente)->first();
-
+        
         return view('clientes.delete',['cliente'=>$cliente
         ]);
     }

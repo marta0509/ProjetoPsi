@@ -16,19 +16,23 @@ Vendedores
 					</a>
 				</td>
 				@if(auth()->check())
-					<td><center>
-						<a href="{{route('vendedores.edit',['id'=>$vendedor->id_vendedor])}}">Editar</a>
-					</td>
-					<td><center>
-						<a href="{{route('vendedores.delete',['id'=>$vendedor->id_vendedor])}}">Eliminar</a>
-					</td>
+					@if(Gate::allows('admin'))
+						<td><center>
+							<a href="{{route('vendedores.edit',['id'=>$vendedor->id_vendedor])}}">Editar</a>
+						</td>
+						<td><center>
+							<a href="{{route('vendedores.delete',['id'=>$vendedor->id_vendedor])}}">Eliminar</a>
+						</td>
+					@endif
 				@endif
 			</th>
 		</tr>
 	@endforeach
 </table>
-@if(auth()->check())	
-<br>
-<a href="{{route('vendedores.create')}}">Adicionar</a>
+@if(auth()->check())
+	@if(Gate::allows('admin'))
+		<br>
+		<a href="{{route('vendedores.create')}}">Adicionar</a>
+	@endif
 @endif
 @endsection

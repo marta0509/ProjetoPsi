@@ -1,0 +1,27 @@
+Route::get('/bem-vindo', function () {
+    echo ('Olá Mundo');
+});
+
+Route::get('/', function () {
+    echo ('<h1>Olá Mundo</h1>');
+});
+
+Route::get('/bemvindo', function () {
+    echo ('<h1>Esta é a página que lhe dará as boas vindas</h1>');
+});
+
+Route::get('/Bem-Vindo/aedah', function () {
+    echo ('<h1>Esta é só para o Agrupamento :)</h1>');
+});
+
+Route::get('/nome/{nome}/{apelido}', function($nome,$apelido){
+	echo ('<h1>Olá '.$nome.' '.$apelido.'<h1>');
+});
+
+Route::get('/repetir/{nome}/{num}', function($nome,$n){$numero= is_numeric($n)?$n:5;
+	for ($i=0;$i<$numero;$i++){
+		echo ('<h1>Olá '.$nome. '</h1>');
+	};
+	return;
+});
+

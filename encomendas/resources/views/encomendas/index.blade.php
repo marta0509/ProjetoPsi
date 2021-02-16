@@ -6,7 +6,7 @@ Empresa-Encomendas
 Encomendas
 @endsection
 @section('conteudo')
-	<table>
+	<table class="table">
 		@foreach($encomendas as $encomenda)
 		<tr>
 			<th>
@@ -16,14 +16,14 @@ Encomendas
 					</a>
 				</td>
 				@if(auth()->check())
-					@if(Gate::allows('atualizar-clientes',$cliente)||Gate::allows('normal'))
-					<td><center>
-						<a href="{{route('encomendas.edit',['id'=>$encomenda->id_encomenda])}}">Editar
-						</a>
-					</td>
-					<td><center>
-						<a href="{{route('encomendas.delete',['id'=>$encomenda->id_encomenda])}}">Eliminar</a>
-					</td>
+					@if(Gate::allows('normal')||Gate::allows('admin'))
+						<td><center>
+							<a href="{{route('encomendas.edit',['id'=>$encomenda->id_encomenda])}}">Editar
+							</a>
+						</td>
+						<td><center>
+							<a href="{{route('encomendas.delete',['id'=>$encomenda->id_encomenda])}}">Eliminar</a>
+						</td>
 					@endif
 				@endif
 			</th>
@@ -31,7 +31,9 @@ Encomendas
 		@endforeach
 	</table>
 @if(auth()->check())	
-<br>
-<a href="{{route('encomendas.create')}}">Adicionar</a>
+	@if(Gate::allows('normal')||Gate::allows('admin'))
+		<br>
+		<a href="{{route('encomendas.create')}}">Adicionar</a>
+	@endif
 @endif
 @endsection

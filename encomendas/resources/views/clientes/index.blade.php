@@ -15,12 +15,16 @@ Clientes
 							{{$cliente->nome}}</a>					
 					</td>
 					@if(auth()->check())
-						<td><center>
-							<a href="{{route('clientes.edit',['id'=>$cliente->id_cliente])}}">Editar</a></center>	
-						</td>
-						<td><center>
-							<a href="{{route('clientes.delete',['id'=>$cliente->id_cliente])}}">Eliminar</a></center>
-						</td>
+						@if(Gate::allows('normal')||Gate::allows('admin'))
+							<td><center>
+								<a href="{{route('clientes.edit',['id'=>$cliente->id_cliente])}}">Editar</a></center>	
+							</td>
+						@endif
+						@if(Gate::allows('admin'))
+							<td><center>
+								<a href="{{route('clientes.delete',['id'=>$cliente->id_cliente])}}">Eliminar</a></center>
+							</td>
+						@endif
 					@endif
 				</th>
 			</tr>
