@@ -16,13 +16,15 @@ Encomendas
 					</a>
 				</td>
 				@if(auth()->check())
-				<td><center>
-					<a href="{{route('encomendas.edit',['id'=>$encomenda->id_encomenda])}}">Editar
-					</a>
-				</td>
-				<td><center>
-					<a href="{{route('encomendas.delete',['id'=>$encomenda->id_encomenda])}}">Eliminar</a>
-				</td>
+					@if(Gate::allows('atualizar-clientes',$cliente)||Gate::allows('normal'))
+					<td><center>
+						<a href="{{route('encomendas.edit',['id'=>$encomenda->id_encomenda])}}">Editar
+						</a>
+					</td>
+					<td><center>
+						<a href="{{route('encomendas.delete',['id'=>$encomenda->id_encomenda])}}">Eliminar</a>
+					</td>
+					@endif
 				@endif
 			</th>
 		</tr>

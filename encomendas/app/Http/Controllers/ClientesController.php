@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\support\Facades\Gate;
+
 use App\Models\Cliente;
 
 class ClientesController extends Controller
@@ -49,9 +51,16 @@ class ClientesController extends Controller
 
         $cliente=Cliente::where('id_cliente',$idCliente)->first();
 
-        return view('clientes.edit', [
-            'cliente'=>$cliente
-        ]);
+        if (Gate::allows('atualizar-cliente',$cliente)||Gate::allows('normal')||Gate::allows('admin')) 
+        {          
+            return view('clientes.edit', [
+                'cliente'=>$cliente
+            ]);
+        }
+        else
+        {
+            return redirect()->route('clientes.index')->with('mensagem','Não tem permissão para aceder à área pretendida.');
+        }
     }
 
     public function update(Request $request)
