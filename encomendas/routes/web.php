@@ -131,3 +131,5 @@ Route::get('form','App\Http\Controllers\FormController@mostrarForm')->name('most
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

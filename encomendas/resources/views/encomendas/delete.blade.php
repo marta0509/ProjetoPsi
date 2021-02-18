@@ -18,4 +18,7 @@ Encomendas
 	@endif
 	<input type="submit" name="Enviar">
 </form>
+
+	<br>
+	<a href="{{route('encomendas.index')}}">voltar</a>
 @endsection

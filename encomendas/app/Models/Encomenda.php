@@ -13,6 +13,14 @@ class Encomenda extends Model
 
     protected $table="encomendas";
 
+    protected $fillable=[
+        'id_cliente',
+        'id_encomenda',
+        'id_vendedor',
+        'data',
+        'observacoes'
+    ];
+
     public function cliente()
     {
     	return $this->belongsTo('App\Models\Cliente','id_cliente');

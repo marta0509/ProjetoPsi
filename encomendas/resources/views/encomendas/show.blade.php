@@ -18,4 +18,6 @@ Encomendas
 	<b> Data: </b> {{$encomendas->data}} <br>
 	<b> Observações: </b> {{$encomendas->observacoes}} <br>
 	
+	<br>
+	<a href="{{route('encomendas.index')}}">Voltar</a>
 @endsection

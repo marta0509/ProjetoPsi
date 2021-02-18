@@ -51,5 +51,14 @@ class AuthServiceProvider extends ServiceProvider
                 return false;
             }
         });
+
+        Gate::define('normal', function($user){
+            if($user->tipo_user=='normal'){
+                return true;
+            }
+            else{
+                return false;
+            }
+        });
     }
 }

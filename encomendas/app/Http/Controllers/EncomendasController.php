@@ -82,7 +82,7 @@ class EncomendasController extends Controller
 
         $encomenda=Encomenda::where('id_encomenda',$idEncomenda)->first();
 
-        return view('encomendas.delete',['encomenda'=>$encomendas
+        return view('encomendas.delete',['encomenda'=>$encomenda
         ]);
     }
 
@@ -94,7 +94,7 @@ class EncomendasController extends Controller
 
         $encomenda->delete();
 
-        return redirect()->route('encomendas.index')->with('mensagem','Encomenda Eliminad!');
+        return redirect()->route('encomendas.index')->with('mensagem','Encomenda Eliminada!');
     }
 
 }

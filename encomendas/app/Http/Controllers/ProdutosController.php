@@ -37,7 +37,7 @@ class ProdutosController extends Controller
             'stock'=>['required'],
             'preco'=>['required'],
             'observacoes'=>['nullable', 'min:5'],
-            'imagem'=>['image','nullable','max:2000'],
+            'imagem'=>['image','nullable','max:2000']
         ]);
 
         if($request->hasFile('imagem'))
@@ -49,6 +49,7 @@ class ProdutosController extends Controller
 
             $novoProduto['imagem']=$nomeImagem;
         }
+        
 
         $produto=Produto::create($novoProduto);
         return redirect()->route('produtos.show',[
@@ -95,7 +96,7 @@ class ProdutosController extends Controller
             'stock'=>['required'],
             'preco'=>['required'],
             'observacoes'=>['nullable', 'min:5'],
-            'imagem'=>['image','nullable','max:2000'],
+            'imagem'=>['image','nullable','max:2000']
         ]);
 
         if($request->hasFile('imagem'))
@@ -103,7 +104,7 @@ class ProdutosController extends Controller
             $nomeImagem = $request->file('imagem')->getClientOriginalName();
 
             $nomeImagem = time().'_'.$nomeImagem;
-            $guardarImagem = $request->file('imagem')->storeAs('imagens/produtos',$nomeImagem);
+            $guardarImagem = $request->file('imagem')->storeAs('imagens/produtos/',$nomeImagem);
 
             $atualizarProduto['imagem']=$nomeImagem;
         }

@@ -18,4 +18,7 @@ Clientes
 	@endif
 	<input type="submit" name="Enviar">
 </form>
+
+<br>
+<a href="{{route('clientes.index')}}">Voltar</a>
 @endsection

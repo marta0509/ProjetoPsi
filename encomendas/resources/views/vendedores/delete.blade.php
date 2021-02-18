@@ -18,4 +18,7 @@ Vendedores
 	@endif
 	<input type="submit" name="Enviar">
 </form>
+
+<br>
+<a href="{{route('vendedores.index')}}">voltar</a>
 @endsection

@@ -13,12 +13,12 @@ Vendedores
 	@if($errors->has('nome'))
 		Deverá indicar um nome correto (no minimo 3 letras)<br>
 	@endif
-
+	<br>
 	Especialidade:<input type="text" name="especialidade"><br>
 	@if($errors->has('especialidade'))
 		Deverá indicar uma especialidade correta(no minimo 3 letras)<br>
 	@endif
-
+	<br>
 	Email:<input type="text" name="email"><br>
 	@if($errors->has('email'))
 		Deverá indicar um email correta(no minimo 5 letras)<br>
@@ -26,4 +26,7 @@ Vendedores
 	<br>
 	<input type="submit" name="criar">
 </form>
+
+<br>
+<a href="{{route('vendedores.index')}}">voltar</a>
 @endsection

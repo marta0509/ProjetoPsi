@@ -20,7 +20,10 @@
                     <b>ID:</b> {{Auth::user()->id}}<br>
                     <b>Email:</b> {{Auth::user()->email}}<br>
                     <b>Nome:</b> {{Auth::user()->name}}<br>
+                    <b>Tipo:</b> {{Auth::user()->tipo_user}}<br>
                     @endif
+                    <br>
+                    <a href="{{route('entrada')}}">Home</a>
                     <!--{{ __('You are logged in!') }}-->
                 </div>
             </div>

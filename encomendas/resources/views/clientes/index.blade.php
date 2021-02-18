@@ -15,6 +15,7 @@ Clientes
 							{{$cliente->nome}}</a>					
 					</td>
 					@if(auth()->check())
+
 						@if(Gate::allows('normal')||Gate::allows('admin'))
 							<td><center>
 								<a href="{{route('clientes.edit',['id'=>$cliente->id_cliente])}}">Editar</a></center>	
