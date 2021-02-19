@@ -42,7 +42,7 @@ class EncomendasController extends Controller
         $encomendas=Encomenda::create($novoEncomenda);
 
         return redirect()->route('encomendas.show',[
-            'id'=>$encomenda->id_encomenda
+            'id'=>$encomendas->id_encomenda
         ]);
     }
 
