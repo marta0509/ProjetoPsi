@@ -9,21 +9,21 @@ Clientes
 	<table class="table">
 		@foreach($clientes as $cliente)
 			<tr>
-				<th>
+				<th >
 					<td>
-						<a href="{{route('clientes.show',['id'=>$cliente->id_cliente])}}">
+						<a style="color: black" href="{{route('clientes.show',['id'=>$cliente->id_cliente])}}">
 							{{$cliente->nome}}</a>					
 					</td>
 					@if(auth()->check())
 
 						@if(Gate::allows('normal')||Gate::allows('admin'))
 							<td><center>
-								<a href="{{route('clientes.edit',['id'=>$cliente->id_cliente])}}">Editar</a></center>	
+								<a class="btn btn-info" style="background-color: #FA5858" href="{{route('clientes.edit',['id'=>$cliente->id_cliente])}}">Editar</a></center>	
 							</td>
 						@endif
 						@if(Gate::allows('admin'))
 							<td><center>
-								<a href="{{route('clientes.delete',['id'=>$cliente->id_cliente])}}">Eliminar</a></center>
+								<a class="btn btn-info" style="background-color: #FA5858" href="{{route('clientes.delete',['id'=>$cliente->id_cliente])}}">Eliminar</a></center>
 							</td>
 						@endif
 					@endif
@@ -33,6 +33,6 @@ Clientes
 	</table>
 @if(auth()->check())	
 <br>
-<a href="{{route('clientes.create')}}">Adicionar</a>
+<a class="btn btn-info" style="background-color: #FA5858" href="{{route('clientes.create')}}">Adicionar</a>
 @endif
 @endsection

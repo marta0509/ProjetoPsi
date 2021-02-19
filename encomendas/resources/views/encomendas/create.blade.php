@@ -33,9 +33,9 @@ Encomendas
 	Observações:<input type="text" name="observacoes"><br>
 
 	<br>
-	<input type="submit" name="criar">
+	<input class="btn btn-info" style="background-color: #FA5858" type="submit" name="criar">
+
+	<a class="btn btn-info" style="background-color: #FA5858" href="{{route('encomendas.index')}}">Voltar</a>
 </form>
 
-	<br>
-	<a href="{{route('encomendas.index')}}">voltar</a>
 @endsection

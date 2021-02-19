@@ -132,4 +132,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+/*---------------Mails-------------*/
 
+Route::get('/mails','App\Http\Controllers\RequisicoesController@index')->name('notificacao.index');

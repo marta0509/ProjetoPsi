@@ -14,5 +14,5 @@ Selecionas-te o cliente:<b>{{$clientes->nome}}</b><br>
 
 	<br>
 
-<a href="{{route('clientes.index')}}">Voltar</a>
+<a class="btn btn-info" style="background-color: #FA5858" href="{{route('clientes.index')}}">Voltar</a>
 @endsection

@@ -19,5 +19,5 @@ Encomendas
 	<b> Observações: </b> {{$encomendas->observacoes}} <br>
 	
 	<br>
-	<a href="{{route('encomendas.index')}}">Voltar</a>
+	<a class="btn btn-info" style="background-color: #FA5858" href="{{route('encomendas.index')}}">Voltar</a>
 @endsection

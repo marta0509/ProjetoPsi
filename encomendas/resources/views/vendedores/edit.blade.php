@@ -26,9 +26,9 @@ Vendedores
 		Deverá indicar um email correta(no minimo 5 letras)<br>
 	@endif
 	<br>
-	<input type="submit" name="criar">
+	<input class="btn btn-info" style="background-color: #FA5858" type="submit" name="criar">
+
+	<a class="btn btn-info" style="background-color: #FA5858" href="{{route('vendedores.index')}}">Voltar</a>
 </form>
 
-<br>
-<a href="{{route('vendedores.index')}}">voltar</a>
 @endsection

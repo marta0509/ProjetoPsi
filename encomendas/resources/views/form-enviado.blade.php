@@ -7,6 +7,7 @@ Pesquisa Completa com sucesso
 @endsection
 @section('conteudo')
 	@foreach($clientes as $cliente)
+	<br>
 	<b> ID: </b> {{$cliente->id_cliente}} <br>
 	<b> Nome: </b> {{$cliente->nome}} <br>
 	<b> Morada: </b> {{$cliente->morada}} <br>
@@ -14,5 +15,6 @@ Pesquisa Completa com sucesso
 	@endforeach
 
 	<br>
-	<a href="{{route('mostrar.form')}}">Voltar</a>
+
+	<a class="btn btn-info" style="background-color: #FA5858" href="{{route('mostrar.form')}}">Voltar</a>
 @endsection

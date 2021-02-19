@@ -16,12 +16,11 @@ Informações sobre: <b>{{$produtos->designacao}}</b><br>
 	@if(isset($produtos->imagem))		 
 		<img src="{{asset('imagens/produtos/'.$produtos->imagem)}}" width="250px" height="150px"><br>
 	@else
-		Não tem imagem
-		
+		Imagem indisponivel
 	@endif
 	
 <br>
-<a href="{{route('produtos.index')}}">voltar</a>
+<a class="btn btn-info" style="background-color: #FA5858" href="{{route('produtos.index')}}">Voltar</a>
 @endsection
 
 

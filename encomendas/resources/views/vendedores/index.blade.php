@@ -11,17 +11,17 @@ Vendedores
 		<tr>
 			<th>
 				<td>
-					<a href="{{route('vendedores.show',['id'=>$vendedor->id_vendedor])}}">
+					<a style="color: black" href="{{route('vendedores.show',['id'=>$vendedor->id_vendedor])}}">
 					{{$vendedor->nome}}
 					</a>
 				</td>
 				@if(auth()->check())
 					@if(Gate::allows('admin'))
 						<td><center>
-							<a href="{{route('vendedores.edit',['id'=>$vendedor->id_vendedor])}}">Editar</a>
+							<a class="btn btn-info" style="background-color: #FA5858" href="{{route('vendedores.edit',['id'=>$vendedor->id_vendedor])}}">Editar</a>
 						</td>
 						<td><center>
-							<a href="{{route('vendedores.delete',['id'=>$vendedor->id_vendedor])}}">Eliminar</a>
+							<a class="btn btn-info" style="background-color: #FA5858" href="{{route('vendedores.delete',['id'=>$vendedor->id_vendedor])}}">Eliminar</a>
 						</td>
 					@endif
 				@endif
@@ -32,7 +32,9 @@ Vendedores
 @if(auth()->check())
 	@if(Gate::allows('admin'))
 		<br>
-		<a href="{{route('vendedores.create')}}">Adicionar</a>
+		<a class="btn btn-info" style="background-color: #FA5858" href="{{route('vendedores.create')}}">Adicionar</a>
+
+		<a class="btn btn-info" style="background-color: #FA5858" href="{{route('notificacao.index')}}">Mails</a>
 	@endif
 @endif
 @endsection

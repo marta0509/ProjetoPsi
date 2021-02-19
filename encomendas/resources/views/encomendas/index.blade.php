@@ -11,18 +11,18 @@ Encomendas
 		<tr>
 			<th>
 				<td>
-					<a href="{{route('encomendas.show',['id'=>$encomenda->id_encomenda])}}">
+					<a style="color: black" href="{{route('encomendas.show',['id'=>$encomenda->id_encomenda])}}">
 						{{$encomenda->id_encomenda}}
 					</a>
 				</td>
 				@if(auth()->check())
 					@if(Gate::allows('normal')||Gate::allows('admin'))
 						<td><center>
-							<a href="{{route('encomendas.edit',['id'=>$encomenda->id_encomenda])}}">Editar
+							<a class="btn btn-info" style="background-color: #FA5858" href="{{route('encomendas.edit',['id'=>$encomenda->id_encomenda])}}">Editar
 							</a>
 						</td>
 						<td><center>
-							<a href="{{route('encomendas.delete',['id'=>$encomenda->id_encomenda])}}">Eliminar</a>
+							<a class="btn btn-info" style="background-color: #FA5858" href="{{route('encomendas.delete',['id'=>$encomenda->id_encomenda])}}">Eliminar</a>
 						</td>
 					@endif
 				@endif
@@ -33,7 +33,7 @@ Encomendas
 @if(auth()->check())	
 	@if(Gate::allows('normal')||Gate::allows('admin'))
 		<br>
-		<a href="{{route('encomendas.create')}}">Adicionar</a>
+		<a class="btn btn-info" style="background-color: #FA5858" href="{{route('encomendas.create')}}">Adicionar</a>
 	@endif
 @endif
 @endsection

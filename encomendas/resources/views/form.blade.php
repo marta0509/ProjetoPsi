@@ -12,8 +12,11 @@ Pesquisa
 		@csrf
 		<label for="nome">Nome</label>
 		<input type="text" name="nome">
-		<br><br>
-		<button type="submit">Enviar</button>
+		<br>
+			*Para ver todos os clientes, não preencha o campo.
+		<br>
+		<br>
+		<button class="btn btn-info" style="background-color: #FA5858" type="submit">Enviar</button>
 	</form>
 	<!--@if(Gate::allows('admin'))
 		<h5>Insira o produto que quer pesquisar.</h5><br>

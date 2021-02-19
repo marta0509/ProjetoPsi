@@ -83,14 +83,20 @@
 	</div>	
 	<br>
 
-	<h1 style="text-align: center">@yield('header')</h1>
-
+	<h1  style="text-align: center">@yield('header')</h1>
+	<br>
 	@yield('conteudo')
 
 <!--Rodapé-->
 <br>
 
-	<footer style="position: relative;background-color:black;color: #FFF;width:100%;text-align: center;line-height: 40px;bottom: 0px;margin-top: 24%">Copyright: Marta Machado</footer>
+	<footer style="position: relative;background-color:black;color: #FFF;width:100%;text-align: center;line-height: 40px;bottom: 0px;margin-top: 24%">
+			<b>Logado por:</b>
+                @if(auth()->check())
+	                <b>Nome:</b> {{Auth::user()->name}}
+	                <b>Tipo:</b> {{Auth::user()->tipo_user}}<br>
+                @endif
+			Copyright: Marta Machado</footer>
 	
 	<script src="{{asset('JS/all.js')}}"></script>
 	<script src="{{asset('JS/jquery-3.5.1.min.js')}}"></script>

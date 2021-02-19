@@ -16,9 +16,9 @@ Produtos
 			{{session('mensagem')}}
 		</div>
 	@endif
-	<input type="submit" name="Enviar">
-</form>
+	<br>
+	<input class="btn btn-info" style="background-color: #FA5858" type="submit" name="Sim">
 
-<br>
-<a href="{{route('produtos.index')}}">voltar</a>
+	<a class="btn btn-info" style="background-color: #FA5858" href="{{route('produtos.index')}}">Voltar</a>
+</form>
 @endsection

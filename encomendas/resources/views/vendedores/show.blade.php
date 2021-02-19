@@ -14,7 +14,7 @@ Informações do vendedor: <b>{{$vendedores->nome}}</b><br>
 	<b> Email: </b> {{$vendedores->email}} <br>
 
 <br>
-<a href="{{route('vendedores.index')}}">Voltar</a>
+<a class="btn btn-info" style="background-color: #FA5858" href="{{route('vendedores.index')}}">Voltar</a>
 
 @endsection
 

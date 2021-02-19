@@ -30,9 +30,8 @@ Produtos
 	<br>
 	Imagem: <input type="file" name="imagem" value="{{$produto->imagem}}"><br>
 	<br>
-	<input type="submit" name="criar">
+	<input class="btn btn-info" style="background-color: #FA5858" type="submit" name="criar">
+	
+	<a class="btn btn-info" style="background-color: #FA5858" href="{{route('produtos.index')}}">Voltar</a>
 </form>
-
-<br>
-<a href="{{route('produtos.index')}}">voltar</a>
 @endsection

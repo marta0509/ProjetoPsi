@@ -16,9 +16,10 @@ Vendedores
 			{{session('mensagem')}}
 		</div>
 	@endif
-	<input type="submit" name="Enviar">
+	<br>
+	<input class="btn btn-info" style="background-color: #FA5858" type="submit" name="Sim">
+	
+	<a class="btn btn-info" style="background-color: #FA5858" href="{{route('vendedores.index')}}">Voltar</a>
 </form>
 
-<br>
-<a href="{{route('vendedores.index')}}">voltar</a>
 @endsection

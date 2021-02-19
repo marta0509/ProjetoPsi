@@ -23,7 +23,7 @@
                     <b>Tipo:</b> {{Auth::user()->tipo_user}}<br>
                     @endif
                     <br>
-                    <a href="{{route('entrada')}}">Home</a>
+                    <a class="btn btn-info" style="background-color: #FA5858" href="{{route('entrada')}}">Home</a>
                     <!--{{ __('You are logged in!') }}-->
                 </div>
             </div>
