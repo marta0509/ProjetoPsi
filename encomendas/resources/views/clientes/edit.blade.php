@@ -30,7 +30,6 @@ Clientes
 	<br>
 	<input class="btn btn-info" style="background-color: #FA5858" type="submit" name="criar">
 	
-	<a class="btn btn-info" style="background-color: #FA5858" href="{{route('clientes.index')}}">Voltar</a
+	<a class="btn btn-info" style="background-color: #FA5858" href="{{route('clientes.index')}}">Voltar</a>
 </form>
->
 @endsection

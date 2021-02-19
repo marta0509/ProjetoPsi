@@ -16,14 +16,14 @@ Clientes
 					</td>
 					@if(auth()->check())
 
-						@if(Gate::allows('normal')||Gate::allows('admin'))
+						@if(Gate::allows('normal') || Gate::allows('admin'))
 							<td><center>
-								<a class="btn btn-info" style="background-color: #FA5858" href="{{route('clientes.edit',['id'=>$cliente->id_cliente])}}">Editar</a></center>	
+								<a class="btn btn-info" style="background-color: #FA5858" href="{{route('clientes.edit',['id'=>$cliente->id_cliente])}}">Editar</a>	
 							</td>
 						@endif
 						@if(Gate::allows('admin'))
 							<td><center>
-								<a class="btn btn-info" style="background-color: #FA5858" href="{{route('clientes.delete',['id'=>$cliente->id_cliente])}}">Eliminar</a></center>
+								<a class="btn btn-info" style="background-color: #FA5858" href="{{route('clientes.delete',['id'=>$cliente->id_cliente])}}">Eliminar</a>
 							</td>
 						@endif
 					@endif

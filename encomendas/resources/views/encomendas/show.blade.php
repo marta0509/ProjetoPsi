@@ -8,7 +8,7 @@ Encomendas
 @section('conteudo')
 
 	Encomendas feitas por:
-	<b>{{$encomendas->cliente->nome}}</b>
+	<b>{{$encomendas->id_encomenda}}</b>
 
 	<br><br>
 

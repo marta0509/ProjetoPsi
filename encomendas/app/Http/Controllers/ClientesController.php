@@ -51,16 +51,16 @@ class ClientesController extends Controller
 
         $cliente=Cliente::where('id_cliente',$idCliente)->first();
 
-        if (Gate::allows('atualizar-cliente',$cliente)||Gate::allows('normal')) 
-        {          
+        /*if (Gate::allows('atualizar-cliente',$cliente) || Gate::allows('normal')) 
+        {   */       
             return view('clientes.edit', [
                 'cliente'=>$cliente
-            ]);
+            ]);/*
         }
         else
         {
             return redirect()->route('clientes.index')->with('mensagem','Não tem permissão para aceder à área pretendida.');
-        }
+        }*/
     }
 
     public function update(Request $request)

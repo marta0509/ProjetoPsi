@@ -91,8 +91,9 @@
 <br>
 
 	<footer style="position: relative;background-color:black;color: #FFF;width:100%;text-align: center;line-height: 40px;bottom: 0px;margin-top: 24%">
-			<b>Logado por:</b>
+			
                 @if(auth()->check())
+                <b>Logado por:</b>
 	                <b>Nome:</b> {{Auth::user()->name}}
 	                <b>Tipo:</b> {{Auth::user()->tipo_user}}<br>
                 @endif
